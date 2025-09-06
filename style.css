@@ -185,12 +185,15 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   position: relative;
   overflow: hidden;
   padding-top: 90px;
+  color: white;
 }
 .hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.08"><circle cx="40" cy="40" r="2"/></g></g></svg>');
+  background: url('https://source.unsplash.com/1600x900/?technology,chat') center/cover no-repeat;
+  position: relative;
+
   animation: float 15s ease-in-out infinite;
   opacity: 0.35;
   pointer-events: none;
@@ -264,6 +267,25 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.chat-scroll-wrapper {
+  position: relative;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+  background: #111; /* optional for contrast */
+  border-radius: 8px;
+}
+
+.scroll-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .discord-btn {
@@ -389,6 +411,7 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   margin-bottom: 6px;
 }
 
+
 .section {
   padding: 80px 0;
 }
@@ -425,6 +448,15 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   border-color: rgba(102, 126, 234, 0.3);
 }
 
+#how-it-works .card .step-number,
+#how-it-works .card h4,
+#what-you-get .card .step-number,
+#what-you-get .card h4 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .step-number {
   width: 60px;
   height: 60px;
@@ -439,6 +471,8 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   font-size: 1.5rem;
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
+
+/* pricing card */
 
 .pricing-card {
   background: var(--card-color);
@@ -623,9 +657,12 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   .hero-title {
     font-size: clamp(2.1rem, 7vw, 2.8rem);
   }
+
   .hero-subtitle {
     font-size: 1.05rem;
+    color: white !important;
   }
+
   .pricing-card.popular {
     transform: none;
     margin: 20px 0;
