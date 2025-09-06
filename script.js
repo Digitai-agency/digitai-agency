@@ -57,12 +57,12 @@ document
   .forEach((el) => observer.observe(el));
 
 // Chat animation stagger
-function animateChat() {
-  const messages = document.querySelectorAll(".chat-message");
-  messages.forEach((message, index) => {
-    message.style.animationDelay = `${index * 0.35}s`;
-  });
-}
+// function animateChat() {
+//   const messages = document.querySelectorAll(".chat-message");
+//   messages.forEach((message, index) => {
+//     message.style.animationDelay = `${index * 0.35}s`;
+//   });
+// }
 
 // Navbar background on scroll (theme-safe)
 function handleScroll() {
