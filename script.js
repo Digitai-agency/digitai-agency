@@ -26,6 +26,12 @@ function toggleTheme() {
   applyThemeToComponents();
 }
 
+// Chat scroll buttons
+function scrollChat(direction) {
+  const container = document.querySelector('.chat-scroll-wrapper');
+  container.scrollBy({ top: direction * 100, behavior: 'smooth' });
+}
+
 // Smooth scrolling for in-page anchors only
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -70,11 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
   applyThemeToComponents();
   animateChat();
   handleScroll();
-
-  // Update all Discord links from a single source of truth
-  document
-    .querySelectorAll(".discord-link")
-    .forEach((a) => (a.href = DISCORD_INVITE));
 
   // Pricing hover micro-interactions
   document.querySelectorAll(".pricing-card").forEach((card) => {
