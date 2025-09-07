@@ -170,13 +170,11 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-/* .theme-toggle:hover {
-  transform: scale(1.08) rotate(6deg);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
-} */
 
-/* HERO – background now switches with theme */
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -298,19 +296,20 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
 .discord-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 12px 24px;
-  border: none;
+  padding: 12px 20px;
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 }
+
 .discord-btn::before {
   content: "";
   position: absolute;
