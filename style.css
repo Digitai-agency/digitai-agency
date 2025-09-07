@@ -171,10 +171,10 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
-.theme-toggle:hover {
+/* .theme-toggle:hover {
   transform: scale(1.08) rotate(6deg);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
-}
+} */
 
 /* HERO – background now switches with theme */
 .hero-section {
@@ -373,7 +373,11 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
 }
 
 .chat-message {
+  text-align: left;
+  width: 100%;
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 15px;
   margin-bottom: 18px;
   padding: 15px;
@@ -383,6 +387,7 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   border: 1px solid var(--border-color);
   backdrop-filter: blur(10px);
 }
+
 @keyframes messageSlide {
   from {
     opacity: 0;
@@ -428,8 +433,7 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   border: 1px solid var(--border-color);
   border-radius: 20px;
   padding: 35px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   height: 100%;
   backdrop-filter: blur(20px);
   position: relative;
@@ -667,7 +671,6 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
 
   .hero-subtitle {
     font-size: 1.05rem;
-    color: white !important;
   }
 
   .pricing-card.popular {
@@ -696,7 +699,74 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   .discord-btn {
     text-align: center;
   }
-}  
+
+  /* hero section */
+  .hero-section .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-section .col-lg-6 {
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chat-demo {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .chat-scroll-wrapper {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .chat-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .chat-message .message-content {
+    text-align: left;
+    max-width: 90%;
+  }
+
+  .chat-message .username {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Center any chart canvas or image */
+  .chat-demo canvas,
+  .chat-demo img {
+    display: block;
+    margin: 1rem auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .chat-message .message-content div:not(.username) {
+    text-align: left;
+    text-justify: inter-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
 
 .fade-in {
   opacity: 0;
@@ -718,7 +788,6 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   animation: pulse-green 2s ease-in-out infinite;
 }
 
-@media (max-width: 768px) {
   .hero-section {
     text-align: center;
     padding-top: 60px;
@@ -747,7 +816,8 @@ h1, h2, h3, h4, h5, h6, p, li, a, span, small, div { color: var(--text-color) !i
   .chat-demo {
     margin-top: 2rem;
   }
-}
+
+
 
 @keyframes pulse-green {
   0%,
