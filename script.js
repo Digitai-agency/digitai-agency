@@ -56,14 +56,6 @@ document
   .querySelectorAll(".fade-in")
   .forEach((el) => observer.observe(el));
 
-// Chat animation stagger
-// function animateChat() {
-//   const messages = document.querySelectorAll(".chat-message");
-//   messages.forEach((message, index) => {
-//     message.style.animationDelay = `${index * 0.35}s`;
-//   });
-// }
-
 // Navbar background on scroll (theme-safe)
 function handleScroll() {
   const navbar = document.querySelector(".navbar");
@@ -76,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
   applyThemeToComponents();
   animateChat();
   handleScroll();
+  
+  
 
   // Pricing hover micro-interactions
   document.querySelectorAll(".pricing-card").forEach((card) => {
@@ -130,3 +124,22 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => particle.remove(), 3000);
   }, 2200);
 });
+
+// Closing the navbar on link/button click in mobile view
+document.addEventListener("DOMContentLoaded", function () {
+  const navbarCollapse = document.getElementById("navbarNav");
+  const navbarToggler = document.querySelector(".navbar-toggler");
+
+  // Collapse navbar on any click inside it (links, buttons, theme toggle, etc.)
+  document.querySelectorAll("#navbarNav a, #navbarNav button").forEach((el) => {
+    el.addEventListener("click", () => {
+      const isMobile = window.getComputedStyle(navbarToggler).display !== "none";
+      const isExpanded = navbarCollapse.classList.contains("show");
+
+      if (isMobile && isExpanded) {
+        navbarToggler.click(); // Simulate toggler click to collapse
+      }
+    });
+  });
+});
+
