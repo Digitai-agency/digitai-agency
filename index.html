@@ -16,8 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body data-theme="dark">
@@ -29,13 +28,11 @@
     </div>
 
     <!-- Navigation -->
-     
+
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand logo" href="#">
-          <span
-            >DigitAI
-          </span>
+          <span>DigitAI </span>
         </a>
 
         <button
@@ -74,7 +71,7 @@
             rel="noopener"
             class="discord-btn"
           >
-            <i class="fab fa-discord"></i>
+            <!-- <i class="fab fa-discord"></i> -->
             Contact Us
           </a>
         </div>
@@ -82,6 +79,7 @@
     </nav>
 
     <!-- Hero Section -->
+
     <section class="hero-section">
       <div class="container">
         <div class="row align-items-center">
@@ -99,7 +97,7 @@
                 target="_blank"
                 rel="noopener"
                 class="btn btn-sm btn-primary px-3 py-2 text-center"
-                style="font-size: 0.875rem; font-weight: 500;"
+                style="font-size: 0.875rem; font-weight: 500"
               >
                 <i class="fab fa-discord"></i>
                 Start on DigitAI
@@ -107,9 +105,9 @@
             </div>
 
             <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
-              <span class="badge text-bg-success px-2 py-1" >Discord-only</span>
-              <span class="text-muted" >Asynchronous or live</span>
-              <span class="text-muted" >MidJourney-style iteration</span>
+              <span class="badge text-bg-success px-2 py-1">Discord-only</span>
+              <span class="text-muted">Asynchronous or live</span>
+              <span class="text-muted">MidJourney-style iteration</span>
             </div>
           </div>
 
@@ -123,50 +121,13 @@
               </div>
               <section id="chat-demo">
                 <div class="chat-scroll-wrapper">
-                  <div class="chat-messages">           
-                    <!-- Existing messages -->
+                  <div class="chat-messages">
                     <div class="chat-message">
                       <div class="avatar">Y</div>
                       <div class="message-content">
                         <div class="username">You</div>
-                        <div>Can we make the hero headline punchier for my café?</div>
-                      </div>
-                    </div>
-
-                    <div class="chat-message">
-                      <div class="avatar" style="background: var(--discord-blurple)">
-                        D
-                      </div>
-                      <div class="message-content">
-                        <div class="username">DigitAI</div>
                         <div>
-                          Updated! "Fresh coffee. Fresh starts." Also added a booking
-                          button. Want a lighter background?
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="chat-message">
-                      <div class="avatar">Y</div>
-                      <div class="message-content">
-                        <div class="username">You</div>
-                        <div>Yes — and show our opening hours under the hero.</div>
-                      </div>
-                    </div>
-
-                    <!-- Added messages -->
-                    <div class="chat-message">
-                      <div
-                        class="avatar"
-                        style="background: linear-gradient(135deg, #00f2fe, #4facfe)"
-                      >
-                        UX
-                      </div>
-                      <div class="message-content">
-                        <div class="username">Designer</div>
-                        <div>
-                          Mocked a lighter hero with subtle texture. Added accessible
-                          contrast on the CTA.
+                          Can we make the hero headline punchier for my café?
                         </div>
                       </div>
                     </div>
@@ -174,15 +135,25 @@
                     <div class="chat-message">
                       <div
                         class="avatar"
-                        style="background: linear-gradient(135deg, #43e97b, #38ef7d)"
+                        style="background: var(--discord-blurple)"
                       >
                         D
                       </div>
                       <div class="message-content">
                         <div class="username">DigitAI</div>
                         <div>
-                          Opening hours now sit below the hero. Also prepared a footer
-                          contact strip.
+                          Updated! "Fresh coffee. Fresh starts." Also added a
+                          booking button. Want a lighter background?
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="chat-message">
+                      <div class="avatar">Y</div>
+                      <div class="message-content">
+                        <div class="username">You</div>
+                        <div>
+                          Yes — and show our opening hours under the hero.
                         </div>
                       </div>
                     </div>
@@ -190,15 +161,17 @@
                     <div class="chat-message">
                       <div
                         class="avatar"
-                        style="background: linear-gradient(135deg, #f093fb, #f5576c)"
+                        style="
+                          background: linear-gradient(135deg, #43e97b, #38ef7d);
+                        "
                       >
-                        DEV
+                        D
                       </div>
                       <div class="message-content">
-                        <div class="username">DevOps</div>
+                        <div class="username">DigitAI</div>
                         <div>
-                          Staging redeployed. Cache cleared.
-                          <em>yourcafe.dev/preview</em> reflects changes.
+                          Opening hours now sit below the hero. Also prepared a
+                          footer contact strip.
                         </div>
                       </div>
                     </div>
@@ -221,7 +194,7 @@
                     </div>
                   </div>
                 </div>
-              </section>        
+              </section>
             </div>
           </div>
         </div>
@@ -641,14 +614,20 @@
           <div class="col-lg-8 text-center">
             <div
               class="card fade-in"
-              style="background: var(--primary-gradient); color: white; border: none; padding: 2rem;"
+              style="
+                background: var(--primary-gradient);
+                color: white;
+                border: none;
+                padding: 2rem;
+              "
             >
               <h2 class="display-5 fw-bold mb-3">Ready to build by chat?</h2>
               <p class="lead mb-4">
                 Join our Discord and drop your first message. We'll spin up your
                 thread and start creating.
               </p>
-              <div style="display: inline-block;"> <!-- key wrapper -->
+              <div style="display: inline-block">
+                <!-- key wrapper -->
                 <a
                   href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
                   class="discord-btn"
@@ -662,39 +641,50 @@
         </div>
       </div>
     </section>
-    
 
     <!-- Footer -->
     <footer class="footer py-4">
       <div class="container">
         <div class="row gy-3 text-center text-md-start align-items-center">
           <!-- Logo -->
-          <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start">
+          <div
+            class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start"
+          >
             <div class="logo">
-              <span style="font-size: 1.25rem; font-weight: 600;">
+              <span style="font-size: 1.25rem; font-weight: 600">
                 DigitAI
               </span>
             </div>
           </div>
-    
+
           <!-- Discord Icon -->
-          <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
-            <a href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
-               target="_blank" rel="noopener"
-               class="text-decoration-none"
-               aria-label="Open Discord invite in a new tab">
-              <i class="fab fa-discord fa-2x" style="color: var(--discord-blurple);"></i>
+          <div
+            class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end"
+          >
+            <a
+              href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
+              target="_blank"
+              rel="noopener"
+              class="text-decoration-none"
+              aria-label="Open Discord invite in a new tab"
+            >
+              <i
+                class="fab fa-discord fa-2x"
+                style="color: var(--discord-blurple)"
+              ></i>
             </a>
           </div>
-    
+
           <!-- Tagline -->
           <div class="col-12">
             <div class="text-center text-muted">Digital made smarter.</div>
           </div>
-    
+
           <!-- Copyright -->
           <div class="col-12">
-            <div class="text-center">© 2025 DigitAI.agency. All rights reserved.</div>
+            <div class="text-center">
+              © 2025 DigitAI.agency. All rights reserved.
+            </div>
           </div>
         </div>
       </div>
