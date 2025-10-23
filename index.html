@@ -3,23 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DigitAI.agency — Websites & Social built in chat."
+    />
     <title>DigitAI.agency - Websites & Social, built in chat</title>
+
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Keep your original Bootstrap version (same design) -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
+    <!-- Keep your original Font Awesome version (same icons) -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
+
+    <!-- Google Fonts (optimized load) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Your custom CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body data-theme="dark">
+  <body data-theme="light">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
     <!-- Animated Background -->
     <div class="animated-bg">
       <div class="circle"></div>
@@ -28,11 +47,10 @@
     </div>
 
     <!-- Navigation -->
-
     <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand logo" href="#">
-          <span>DigitAI </span>
+        <a class="navbar-brand logo" href="#home">
+          <span>DigitAI</span>
         </a>
 
         <button
@@ -54,49 +72,65 @@
               <a class="nav-link" href="#what-you-get">What you get</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#built-with">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#vacancies">Vacancies</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#pricing">Pricing</a>
             </li>
             <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
           </ul>
-          <button
-            class="theme-toggle me-3"
-            onclick="toggleTheme()"
-            aria-label="Toggle dark/light theme"
+
+          <div
+            class="d-flex flex-column flex-lg-row align-items-lg-center gap-3"
           >
-            <i class="fas fa-moon" id="theme-icon"></i>
-          </button>
-          <a
-            href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
-            target="_blank"
-            rel="noopener"
-            class="discord-btn"
-          >
-            <!-- <i class="fab fa-discord"></i> -->
-            Contact Us
-          </a>
+            <!-- Colorful Toggle Button -->
+            <button
+              class="theme-toggle"
+              onclick="toggleTheme()"
+              aria-label="Toggle dark/light theme"
+            >
+              <div class="toggle-track">
+                <div class="toggle-thumb">
+                  <i id="theme-icon" class="fas fa-moon"></i>
+                </div>
+              </div>
+            </button>
+
+            <!-- Contact Us Button -->
+            <a
+              href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
+              target="_blank"
+              rel="noopener"
+              class="discord-btn"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-
-    <section class="hero-section">
+    <section id="home" class="hero-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6">
-            <h1 class="hero-title">Websites built in chat.</h1>
+          <div class="col-lg-6 text-center">
+            <h1 class="hero-title text-transparent">Websites built in chat.</h1>
             <p class="hero-subtitle">
               No calls. No meetings. Just drop feedback in Discord and watch
               your website or social posts update in real time. AI does the
               heavy lifting — humans ensure it's on-brand and polished.
             </p>
 
-            <div class="d-flex gap-3 mb-3">
+            <div class="d-flex justify-content-center mb-3">
               <a
                 href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
                 target="_blank"
                 rel="noopener"
-                class="btn btn-sm btn-primary px-3 py-2 text-center"
+                class="btn btn-sm discord-btn px-3 py-2 text-center"
                 style="font-size: 0.875rem; font-weight: 500"
               >
                 <i class="fab fa-discord"></i>
@@ -104,10 +138,10 @@
               </a>
             </div>
 
-            <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
-              <span class="badge text-bg-success px-2 py-1">Discord-only</span>
-              <span class="text-muted">Asynchronous or live</span>
-              <span class="text-muted">MidJourney-style iteration</span>
+            <div class="d-flex flex-column align-items-center gap-4 mb-4">
+              <span class="badge text-bg-success px-2 py-2">Discord-only</span>
+              <span>Asynchronous or live</span>
+              <span>MidJourney-style iteration</span>
             </div>
           </div>
 
@@ -119,82 +153,79 @@
                 <h6 class="mb-0">#your-website</h6>
                 <small class="text-muted">Live now</small>
               </div>
-              <section id="chat-demo">
-                <div class="chat-scroll-wrapper">
-                  <div class="chat-messages">
-                    <div class="chat-message">
-                      <div class="avatar">Y</div>
-                      <div class="message-content">
-                        <div class="username">You</div>
-                        <div>
-                          Can we make the hero headline punchier for my café?
-                        </div>
+              <div
+                class="chat-scroll-wrapper"
+                style="
+                  max-height: 400px;
+                  overflow-y: auto;
+                  padding: 20px;
+                  background: #111;
+                  border-radius: 8px;
+                "
+              >
+                <div class="chat-messages">
+                  <div class="chat-message">
+                    <div class="avatar">Y</div>
+                    <div class="message-content">
+                      <div class="username">You</div>
+                      <div>
+                        Can we make the hero headline punchier for my café?
                       </div>
-                    </div>
-
-                    <div class="chat-message">
-                      <div
-                        class="avatar"
-                        style="background: var(--discord-blurple)"
-                      >
-                        D
-                      </div>
-                      <div class="message-content">
-                        <div class="username">DigitAI</div>
-                        <div>
-                          Updated! "Fresh coffee. Fresh starts." Also added a
-                          booking button. Want a lighter background?
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="chat-message">
-                      <div class="avatar">Y</div>
-                      <div class="message-content">
-                        <div class="username">You</div>
-                        <div>
-                          Yes — and show our opening hours under the hero.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="chat-message">
-                      <div
-                        class="avatar"
-                        style="
-                          background: linear-gradient(135deg, #43e97b, #38ef7d);
-                        "
-                      >
-                        D
-                      </div>
-                      <div class="message-content">
-                        <div class="username">DigitAI</div>
-                        <div>
-                          Opening hours now sit below the hero. Also prepared a
-                          footer contact strip.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="chat-message">
-                      <div class="avatar">Y</div>
-                      <div class="message-content">
-                        <div class="username">You</div>
-                        <div>
-                          Looks great! Please add Google Reviews carousel next.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="text-center mt-3">
-                      <small class="text-success">
-                        <i class="fas fa-check-circle"></i>
-                        Changes deployed • 2m ago
-                      </small>
                     </div>
                   </div>
+
+                  <div class="chat-message">
+                    <div
+                      class="avatar"
+                      style="background: var(--discord-blurple)"
+                    >
+                      D
+                    </div>
+                    <div class="message-content">
+                      <div class="username">DigitAI</div>
+                      <div>
+                        Updated! "Fresh coffee. Fresh starts." Also added a
+                        booking button. Want a lighter background?
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="chat-message">
+                    <div class="avatar">Y</div>
+                    <div class="message-content">
+                      <div class="username">You</div>
+                      <div>
+                        Yes — and show our opening hours under the hero.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="chat-message">
+                    <div
+                      class="avatar"
+                      style="
+                        background: linear-gradient(135deg, #43e97b, #38ef7d);
+                      "
+                    >
+                      D
+                    </div>
+                    <div class="message-content">
+                      <div class="username">DigitAI</div>
+                      <div>
+                        Opening hours now sit below the hero. Also prepared a
+                        footer contact strip.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-center mt-3">
+                    <small class="text-success">
+                      <i class="fas fa-check-circle"></i>
+                      Changes deployed • 2m ago
+                    </small>
+                  </div>
                 </div>
-              </section>
+              </div>
             </div>
           </div>
         </div>
@@ -202,7 +233,11 @@
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works" class="section">
+    <section
+      id="how-it-works"
+      class="section"
+      style="background: var(--bg-color)"
+    >
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="display-4 fw-bold mb-3 fade-in">How it works</h2>
@@ -215,8 +250,8 @@
           <div class="col-md-4">
             <div class="card fade-in">
               <div class="step-number">1</div>
-              <h4>Join our Discord</h4>
-              <p>
+              <h4 class="text-center">Join our Discord</h4>
+              <p class="text-center">
                 Use the channel that matches your goal: #new-website or
                 #social-content. Answer a short intake message.
               </p>
@@ -226,8 +261,8 @@
           <div class="col-md-4">
             <div class="card fade-in">
               <div class="step-number">2</div>
-              <h4>Describe & react</h4>
-              <p>
+              <h4 class="text-center">Describe & react</h4>
+              <p class="text-center">
                 We generate first drafts with AI. You react with quick comments,
                 emojis, or screenshots. No meetings required.
               </p>
@@ -237,8 +272,8 @@
           <div class="col-md-4">
             <div class="card fade-in">
               <div class="step-number">3</div>
-              <h4>Iterate & deploy</h4>
-              <p>
+              <h4 class="text-center">Iterate & deploy</h4>
+              <p class="text-center">
                 We apply edits live and publish. You'll always have a share link
                 or staging site to view changes.
               </p>
@@ -252,7 +287,7 @@
     <section
       id="what-you-get"
       class="section"
-      style="background: rgba(88, 101, 242, 0.05)"
+      style="background: var(--bg-color)"
     >
       <div class="container">
         <div class="text-center mb-5">
@@ -266,13 +301,13 @@
                 <i
                   class="fas fa-globe fa-3x"
                   style="
-                    background: var(--primary-gradient);
+                    color: #389e4c;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                   "
                 ></i>
               </div>
-              <h4>Simple Websites</h4>
+              <h4 class="text-center">Simple Websites</h4>
               <ul class="feature-list">
                 <li>Mobile-first, fast, SEO-friendly</li>
                 <li>1-5 pages, clear CTAs</li>
@@ -287,13 +322,13 @@
                 <i
                   class="fas fa-images fa-3x"
                   style="
-                    background: var(--accent-gradient);
+                    color: #7d42b4;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                   "
                 ></i>
               </div>
-              <h4>Social Packs</h4>
+              <h4 class="text-center">Social Packs</h4>
               <ul class="feature-list">
                 <li>Carousels, captions, stories</li>
                 <li>Platform-ready exports</li>
@@ -308,13 +343,13 @@
                 <i
                   class="fas fa-palette fa-3x"
                   style="
-                    background: var(--primary-gradient);
+                    color: #56b485;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                   "
                 ></i>
               </div>
-              <h4>Brand Starters</h4>
+              <h4 class="text-center">Brand Starters</h4>
               <ul class="feature-list">
                 <li>Logo concepts + refinements</li>
                 <li>Color & type suggestions</li>
@@ -326,8 +361,654 @@
       </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing" class="section">
+    <!-- Built with DigitAI Portfolio -->
+    <section
+      id="built-with"
+      class="section"
+      style="background: var(--bg-color)"
+    >
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="display-4 fw-bold mb-3 fade-in">Built with DigitAI</h2>
+          <p class="lead text-muted fade-in">
+            Real projects. Real results. All built in chat.
+          </p>
+        </div>
+        <div class="portfolio-grid">
+          <!-- All 17 Projects -->
+          <a
+            href="https://scrumforce.online/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+              alt="ScrumForce"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Agile Coaching</span>
+              <h3 class="portfolio-title">Buildless</h3>
+              <p class="portfolio-description">
+                Modern development platform without complex builds
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://carads.online/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80"
+              alt="CarAds"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Automotive</span>
+              <h3 class="portfolio-title">CarAds</h3>
+              <p class="portfolio-description">
+                Vehicle marketplace and advertising platform
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://datasetlab.org/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+              alt="DatasetLab"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Data Science</span>
+              <h3 class="portfolio-title">DatasetLab</h3>
+              <p class="portfolio-description">
+                Dataset collaboration for machine learning
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://gotjob.online/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80"
+              alt="GotJob"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Job Board</span>
+              <h3 class="portfolio-title">GotJob</h3>
+              <p class="portfolio-description">
+                Job search and career opportunities platform
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://grasskarma.website/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80"
+              alt="GrassKarma"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Sustainability</span>
+              <h3 class="portfolio-title">GrassKarma</h3>
+              <p class="portfolio-description">
+                Eco-friendly and sustainable living platform
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://heartfull.online/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=80"
+              alt="HeartFull"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Wellness</span>
+              <h3 class="portfolio-title">HeartFull</h3>
+              <p class="portfolio-description">
+                Mental wellness and emotional well-being platform
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://jobsearch.works/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80"
+              alt="JobSearch"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Job Board</span>
+              <h3 class="portfolio-title">JobSearch</h3>
+              <p class="portfolio-description">
+                Comprehensive job search engine
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://peacockdating.online/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80"
+              alt="Peacock Dating"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Dating</span>
+              <h3 class="portfolio-title">Peacock Dating</h3>
+              <p class="portfolio-description">
+                Modern dating platform for meaningful connections
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://quicksite.space/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80"
+              alt="QuickSite"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Website Builder</span>
+              <h3 class="portfolio-title">QuickSite</h3>
+              <p class="portfolio-description">
+                Fast website builder without coding
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://seedstart.world/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80"
+              alt="SeedStart"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Startup</span>
+              <h3 class="portfolio-title">SeedStart</h3>
+              <p class="portfolio-description">
+                Early-stage startup support platform
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://talentad.agency/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80"
+              alt="TalentAd"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Recruitment</span>
+              <h3 class="portfolio-title">TalentAd</h3>
+              <p class="portfolio-description">
+                Digital recruitment for creative and tech talent
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://talenthub.show/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+              alt="TalentHub"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Talent Platform</span>
+              <h3 class="portfolio-title">TalentHub</h3>
+              <p class="portfolio-description">
+                Portfolio showcase for creative professionals
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://uxworx.pro/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
+              alt="UXWorx"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">UX Design</span>
+              <h3 class="portfolio-title">UXWorx</h3>
+              <p class="portfolio-description">Professional UX design agency</p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+
+          <a
+            href="https://avtomat.online/"
+            target="_blank"
+            rel="noopener"
+            class="portfolio-item fade-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80"
+              alt="Avtomat"
+              class="portfolio-image"
+            />
+            <div class="portfolio-content">
+              <span class="portfolio-category">Automation</span>
+              <h3 class="portfolio-title">Avtomat</h3>
+              <p class="portfolio-description">
+                Workflow and business process automation platform
+              </p>
+            </div>
+            <div class="portfolio-overlay">
+              <span class="portfolio-overlay-text"
+                >View Live Site <i class="fas fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vacancies Section -->
+    <section
+      id="vacancies"
+      class="section position-relative overflow-hidden"
+      style="background: var(--bg-color)"
+    >
+      <div class="animated-bg">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+      <div class="container position-relative" style="z-index: 1">
+        <div class="text-center mb-5">
+          <h2 class="display-4 fw-bold mb-4 fade-in">
+            Join as a
+            <span
+              style="
+                background: var(--primary-gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              "
+              >Volunteer / Intern</span
+            >
+          </h2>
+          <p class="lead text-muted fade-in mx-auto" style="max-width: 800px">
+            Become part of our community to gain hands-on experience, learn
+            modern web and AI technologies, and collaborate with passionate
+            developers worldwide.
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="vacancy-card fade-in position-relative">
+              <div class="position-relative">
+                <div class="text-center mb-4">
+                  <div
+                    class="mx-auto mb-3"
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      background: var(--primary-gradient);
+                      border-radius: 20px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 2.5rem;
+                      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+                    "
+                  >
+                    💼
+                  </div>
+                  <h3 class="fw-bold" style="font-size: 2rem">
+                    Volunteer / Intern Opportunity
+                  </h3>
+                </div>
+
+                <p
+                  class="text-center text-muted mb-5"
+                  style="
+                    font-size: 1.1rem;
+                    line-height: 1.7;
+                    max-width: 700px;
+                    margin-left: auto;
+                    margin-right: auto;
+                  "
+                >
+                  Work on real-world projects using cutting-edge technologies
+                  like React, Node.js, and AI automation tools. No prior
+                  experience required, just enthusiasm and consistency.
+                </p>
+
+                <div class="row g-4 mb-5">
+                  <div class="col-md-6">
+                    <div class="requirement-box">
+                      <div class="d-flex align-items-center mb-3">
+                        <div
+                          class="icon-box me-3"
+                          style="
+                            background: linear-gradient(
+                              135deg,
+                              #10b981,
+                              #059669
+                            );
+                          "
+                        >
+                          <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h5 class="fw-bold mb-0">Requirements</h5>
+                      </div>
+                      <ul class="vacancy-list requirements">
+                        <li>Passion for learning and teamwork</li>
+                        <li>Basic knowledge of HTML, CSS, or JavaScript</li>
+                        <li>10+ hrs/week commitment</li>
+                        <li>Active participation in community meetings</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="benefit-box">
+                      <div class="d-flex align-items-center mb-3">
+                        <div
+                          class="icon-box me-3"
+                          style="background: var(--primary-gradient)"
+                        >
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <h5 class="fw-bold mb-0">What You'll Gain</h5>
+                      </div>
+                      <ul class="vacancy-list benefits">
+                        <li>Mentorship from experienced developers</li>
+                        <li>Real-world project experience</li>
+                        <li>Opportunity to grow into leadership roles</li>
+                        <li>Build portfolio-worthy work and network</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <a
+                    href="https://app.buildless.online/login"
+                    target="_blank"
+                    rel="noopener"
+                    class="discord-btn"
+                    style="font-size: 1.1rem; padding: 1rem 2.5rem"
+                  >
+                    <i class="fas fa-rocket me-2"></i>
+                    Apply Now
+                  </a>
+                  <p class="text-muted mt-3" style="font-size: 0.9rem">
+                    <i class="fas fa-users me-1"></i> Join 50+ developers
+                    already building with us
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Structure Section -->
+    <section
+      id="team"
+      class="section position-relative overflow-hidden"
+      style="background: var(--bg-color)"
+    >
+      <div class="container position-relative" style="z-index: 1">
+        <div class="text-center mb-5">
+          <h2 class="display-4 fw-bold mb-4 fade-in">
+            Our
+            <span
+              style="
+                background: var(--primary-gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              "
+              >Team Structure</span
+            >
+          </h2>
+          <p class="lead text-muted fade-in mx-auto" style="max-width: 800px">
+            A collaborative hierarchy built on merit, contribution, and
+            continuous learning
+          </p>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <div class="col-md-4">
+            <div class="team-card fade-in">
+              <div class="team-icon-wrapper">
+                <div
+                  class="team-icon"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #667eea 0%,
+                      #764ba2 100%
+                    );
+                  "
+                >
+                  <i class="fas fa-crown"></i>
+                </div>
+              </div>
+              <h4 class="fw-bold mb-3">Founder/Architect</h4>
+              <p class="text-muted mb-3">
+                Leads vision, architecture, and core development
+              </p>
+              <div class="team-features">
+                <span class="team-badge">Strategic Planning</span>
+                <span class="team-badge">Technical Leadership</span>
+                <span class="team-badge">Mentorship</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="team-card fade-in popular-team">
+              <div class="popular-badge">Most Active</div>
+              <div class="team-icon-wrapper">
+                <div
+                  class="team-icon"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #10b981 0%,
+                      #059669 100%
+                    );
+                  "
+                >
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+              <h4 class="fw-bold mb-3">Dev Leads</h4>
+              <p class="text-muted mb-3">
+                Hosts meetings, mentors team, contributes to product
+              </p>
+              <div class="team-features">
+                <span class="team-badge">Team Management</span>
+                <span class="team-badge">Code Review</span>
+                <span class="team-badge">Sprint Planning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="team-card fade-in">
+              <div class="team-icon-wrapper">
+                <div
+                  class="team-icon"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #3b82f6 0%,
+                      #2563eb 100%
+                    );
+                  "
+                >
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+              </div>
+              <h4 class="fw-bold mb-3">CodeCampers</h4>
+              <p class="text-muted mb-3">
+                Junior devs learning technical & collaboration skills
+              </p>
+              <div class="team-features">
+                <span class="team-badge">Active Learning</span>
+                <span class="team-badge">Pair Programming</span>
+                <span class="team-badge">Project Work</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center fade-in">
+          <div class="growth-callout">
+            <div class="growth-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h5 class="fw-bold mb-2" style="font-size: 1.3rem">
+              Progress based on
+              <span
+                style="
+                  background: var(--primary-gradient);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                "
+                >merit and contribution</span
+              >, not prior experience!
+            </h5>
+            <p class="text-muted mb-0">
+              We believe in learning by doing. Join us to gain real-world
+              experience and grow with our community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section" style="background: var(--bg-color)">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="display-4 fw-bold mb-3 fade-in">Simple pricing</h2>
@@ -340,18 +1021,26 @@
         <div class="row g-4 justify-content-center">
           <div class="col-lg-4">
             <div class="pricing-card fade-in">
+              <div class="pricing-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
               <h4>Website Starter</h4>
               <div class="price">$399</div>
+              <p class="text-muted mb-4">
+                Perfect for launching your online presence
+              </p>
               <ul class="feature-list">
                 <li>Up to 5 sections/pages</li>
                 <li>1 round of live edits</li>
                 <li>Basic SEO & analytics</li>
+                <li>Mobile-responsive design</li>
+                <li>Fast loading speeds</li>
               </ul>
               <a
-                href="https://discord.com/invite/yourInviteCode"
+                href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
                 target="_blank"
                 rel="noopener"
-                class="discord-btn w-100 mt-4 discord-link"
+                class="discord-btn mt-4"
                 >Get Started</a
               >
             </div>
@@ -359,18 +1048,29 @@
 
           <div class="col-lg-4">
             <div class="pricing-card popular fade-in">
+              <div
+                class="pricing-icon"
+                style="background: linear-gradient(135deg, #10b981, #059669)"
+              >
+                <i class="fas fa-crown"></i>
+              </div>
               <h4>Social Monthly</h4>
               <div class="price">$249<small>/mo</small></div>
+              <p class="text-muted mb-4">
+                Keep your social media active & engaging
+              </p>
               <ul class="feature-list">
                 <li>12 posts + captions</li>
                 <li>Content calendar</li>
                 <li>2 live iteration sessions</li>
+                <li>Platform-ready exports</li>
+                <li>Analytics tracking</li>
               </ul>
               <a
-                href="https://discord.com/invite/yourInviteCode"
+                href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
                 target="_blank"
                 rel="noopener"
-                class="discord-btn w-100 mt-4 discord-link"
+                class="discord-btn mt-4"
                 >Start Free Trial</a
               >
             </div>
@@ -378,264 +1078,99 @@
 
           <div class="col-lg-4">
             <div class="pricing-card fade-in">
+              <div
+                class="pricing-icon"
+                style="background: linear-gradient(135deg, #f59e0b, #d97706)"
+              >
+                <i class="fas fa-fire"></i>
+              </div>
               <h4>Bundle</h4>
               <div class="price">$579</div>
+              <p class="text-muted mb-4">
+                Best value for complete digital presence
+              </p>
               <ul class="feature-list">
                 <li>Website Starter + Social Monthly</li>
                 <li>Priority iterations</li>
                 <li>10% off add-ons</li>
+                <li>Dedicated support channel</li>
+                <li>Quarterly strategy review</li>
               </ul>
               <a
-                href="https://discord.com/invite/yourInviteCode"
+                href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
                 target="_blank"
                 rel="noopener"
-                class="discord-btn w-100 mt-4 discord-link"
+                class="discord-btn mt-4"
                 >Get Bundle</a
               >
             </div>
           </div>
         </div>
-
-        <div class="text-center mt-4">
-          <small class="text-muted"
-            >Prices are example anchor points — adjust anytime.</small
-          >
-        </div>
       </div>
     </section>
 
     <!-- Why Discord Only -->
-    <section class="section" style="background: rgba(88, 101, 242, 0.05)">
+    <section class="section" style="background: var(--bg-color)">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="display-4 fw-bold mb-3 fade-in">Why Discord-only?</h2>
+          <p class="lead text-muted fade-in">
+            Built for speed, transparency, and efficiency
+          </p>
         </div>
 
         <div class="row g-4">
           <div class="col-lg-4">
             <div class="card fade-in">
-              <h5><i class="fas fa-rocket me-2"></i>Faster than meetings</h5>
-              <p>
+              <div class="text-center mb-3">
+                <div
+                  class="feature-icon"
+                  style="background: linear-gradient(135deg, #667eea, #764ba2)"
+                >
+                  <i class="fas fa-rocket"></i>
+                </div>
+              </div>
+              <h5 class="text-center mb-3">Faster than meetings</h5>
+              <p class="text-center">
                 Share a thought, emoji-react, upload a photo — we ship the
-                change. Zero calendar pain.
+                change. Zero calendar pain, no scheduling conflicts.
               </p>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="card fade-in">
-              <h5>
-                <i class="fas fa-comments me-2"></i>Everything in one thread
-              </h5>
-              <p>
+              <div class="text-center mb-3">
+                <div
+                  class="feature-icon"
+                  style="background: linear-gradient(135deg, #10b981, #059669)"
+                >
+                  <i class="fas fa-comments"></i>
+                </div>
+              </div>
+              <h5 class="text-center mb-3">Everything in one thread</h5>
+              <p class="text-center">
                 All decisions and versions live in chat. Easy to revisit, easy
-                to roll forward.
+                to roll forward. Complete project history at your fingertips.
               </p>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="card fade-in">
-              <h5><i class="fas fa-brain me-2"></i>AI + human quality</h5>
-              <p>
+              <div class="text-center mb-3">
+                <div
+                  class="feature-icon"
+                  style="background: linear-gradient(135deg, #3b82f6, #2563eb)"
+                >
+                  <i class="fas fa-brain"></i>
+                </div>
+              </div>
+              <h5 class="text-center mb-3">AI + human quality</h5>
+              <p class="text-center">
                 Automation for speed, human supervision for taste, tone, and
-                accuracy.
+                accuracy. Best of both worlds.
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="display-4 fw-bold mb-3 fade-in">FAQ</h2>
-        </div>
-
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="accordion accordion-flush" id="faqAccordion">
-              <div
-                class="accordion-item fade-in"
-                style="
-                  background: var(--card-color);
-                  border: 1px solid var(--border-color);
-                  border-radius: 12px;
-                  margin-bottom: 15px;
-                "
-              >
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq1"
-                    style="
-                      background: var(--card-color);
-                      color: var(--text-color);
-                      border: none;
-                    "
-                  >
-                    Do you take calls or meetings?
-                  </button>
-                </h2>
-                <div
-                  id="faq1"
-                  class="accordion-collapse collapse"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    Nope! Everything happens in Discord. We find async
-                    communication is faster and less disruptive to your
-                    workflow.
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="accordion-item fade-in"
-                style="
-                  background: var(--card-color);
-                  border: 1px solid var(--border-color);
-                  border-radius: 12px;
-                  margin-bottom: 15px;
-                "
-              >
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq2"
-                    style="
-                      background: var(--card-color);
-                      color: var(--text-color);
-                      border: none;
-                    "
-                  >
-                    How fast is delivery?
-                  </button>
-                </h2>
-                <div
-                  id="faq2"
-                  class="accordion-collapse collapse"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    Initial drafts typically within 24-48 hours. Live edits
-                    happen in real-time during our active hours.
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="accordion-item fade-in"
-                style="
-                  background: var(--card-color);
-                  border: 1px solid var(--border-color);
-                  border-radius: 12px;
-                  margin-bottom: 15px;
-                "
-              >
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq3"
-                    style="
-                      background: var(--card-color);
-                      color: var(--text-color);
-                      border: none;
-                    "
-                  >
-                    What tech do you use?
-                  </button>
-                </h2>
-                <div
-                  id="faq3"
-                  class="accordion-collapse collapse"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    Modern web technologies: React, Next.js, Tailwind CSS for
-                    websites. Figma and AI tools for social content.
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="accordion-item fade-in"
-                style="
-                  background: var(--card-color);
-                  border: 1px solid var(--border-color);
-                  border-radius: 12px;
-                "
-              >
-                <h2 class="accordion-header">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#faq4"
-                    style="
-                      background: var(--card-color);
-                      color: var(--text-color);
-                      border: none;
-                    "
-                  >
-                    Can you manage posting?
-                  </button>
-                </h2>
-                <div
-                  id="faq4"
-                  class="accordion-collapse collapse"
-                  data-bs-parent="#faqAccordion"
-                >
-                  <div class="accordion-body">
-                    We create the content and provide scheduling calendars. You
-                    handle the actual posting to maintain control of your
-                    accounts.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <div
-              class="card fade-in"
-              style="
-                background: var(--primary-gradient);
-                color: white;
-                border: none;
-                padding: 2rem;
-              "
-            >
-              <h2 class="display-5 fw-bold mb-3">Ready to build by chat?</h2>
-              <p class="lead mb-4">
-                Join our Discord and drop your first message. We'll spin up your
-                thread and start creating.
-              </p>
-              <div style="display: inline-block">
-                <!-- key wrapper -->
-                <a
-                  href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
-                  class="discord-btn"
-                >
-                  <i class="fab fa-discord"></i>
-                  Join DigitAI
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -677,7 +1212,7 @@
 
           <!-- Tagline -->
           <div class="col-12">
-            <div class="text-center text-muted">Digital made smarter.</div>
+            <div class="text-center text-muted">DigitAI made smarter.</div>
           </div>
 
           <!-- Copyright -->
@@ -691,6 +1226,12 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      defer
+    ></script>
+
     <script src="script.js"></script>
   </body>
 </html>

@@ -12,24 +12,27 @@ function applyThemeToComponents() {
 
 // Theme Toggle
 function toggleTheme() {
-  const body = document.body;
-  const themeIcon = document.getElementById("theme-icon");
-  const currentTheme = body.getAttribute("data-theme");
-
-  if (currentTheme === "dark") {
-    body.setAttribute("data-theme", "light");
-    themeIcon.className = "fas fa-sun";
-  } else {
-    body.setAttribute("data-theme", "dark");
-    themeIcon.className = "fas fa-moon";
+    const body = document.body;
+    const themeIcon = document.getElementById("theme-icon");
+    const currentTheme = body.getAttribute("data-theme");
+  
+    if (currentTheme === "light") {
+      body.setAttribute("data-theme", "dark");
+      themeIcon.classList.remove("fa-moon");
+      themeIcon.classList.add("fa-sun");
+    } else {
+      body.setAttribute("data-theme", "light");
+      themeIcon.classList.remove("fa-sun");
+      themeIcon.classList.add("fa-moon");
+    }
+  
+    applyThemeToComponents();
   }
-  applyThemeToComponents();
-}
 
 // Chat scroll buttons
 function scrollChat(direction) {
-  const container = document.querySelector('.chat-scroll-wrapper');
-  container.scrollBy({ top: direction * 100, behavior: 'smooth' });
+  const container = document.querySelector(".chat-scroll-wrapper");
+  container.scrollBy({ top: direction * 100, behavior: "smooth" });
 }
 
 // Smooth scrolling for in-page anchors only
@@ -68,8 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
   applyThemeToComponents();
   animateChat();
   handleScroll();
-  
-  
 
   // Pricing hover micro-interactions
   document.querySelectorAll(".pricing-card").forEach((card) => {
@@ -94,11 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const typingIndicator = document.createElement("div");
     typingIndicator.className = "chat-message";
     typingIndicator.innerHTML = `
-    <div class="avatar" style="background: var(--discord-blurple);">D</div>
-    <div class="message-content">
-      <div class="username">DigitAI</div>
-      <div class="typing-dots"><span>.</span><span>.</span><span>.</span></div>
-    </div>`;
+<div class="avatar" style="background: var(--discord-blurple);">D</div>
+<div class="message-content">
+<div class="username">DigitAI</div>
+<div class="typing-dots"><span>.</span><span>.</span><span>.</span></div>
+</div>`;
     chatDemo.appendChild(typingIndicator);
     setTimeout(() => typingIndicator.remove(), 1600);
   }, 9000);
@@ -106,11 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add particle animation CSS once
   const style = document.createElement("style");
   style.textContent = `
-  .typing-dots span { animation: typing 1.2s infinite; opacity: 0.4; }
-  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
-  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes typing { 0%, 60%, 100% { opacity: 0.4; } 30% { opacity: 1; } }
-  @keyframes particle-float { 0% { transform: translateY(0) scale(0); opacity: 0.3; } 50% { opacity: 0.6; transform: scale(1); } 100% { transform: translateY(-100px) scale(0); opacity: 0; } }
+.typing-dots span { animation: typing 1.2s infinite; opacity: 0.4; }
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing { 0%, 60%, 100% { opacity: 0.4; } 30% { opacity: 1; } }
+@keyframes particle-float { 0% { transform: translateY(0) scale(0); opacity: 0.3; } 50% { opacity: 0.6; transform: scale(1); } 100% { transform: translateY(-100px) scale(0); opacity: 0; } }
 `;
   document.head.appendChild(style);
 
@@ -131,15 +132,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbarToggler = document.querySelector(".navbar-toggler");
 
   // Collapse navbar on any click inside it (links, buttons, theme toggle, etc.)
-  document.querySelectorAll("#navbarNav a, #navbarNav button").forEach((el) => {
-    el.addEventListener("click", () => {
-      const isMobile = window.getComputedStyle(navbarToggler).display !== "none";
-      const isExpanded = navbarCollapse.classList.contains("show");
+  document
+    .querySelectorAll("#navbarNav a, #navbarNav button")
+    .forEach((el) => {
+      el.addEventListener("click", () => {
+        const isMobile =
+          window.getComputedStyle(navbarToggler).display !== "none";
+        const isExpanded = navbarCollapse.classList.contains("show");
 
-      if (isMobile && isExpanded) {
-        navbarToggler.click(); // Simulate toggler click to collapse
-      }
+        if (isMobile && isExpanded) {
+          navbarToggler.click(); // Simulate toggler click to collapse
+        }
+      });
     });
-  });
 });
 
+const workItems = document.querySelectorAll(".work-item");
+const indicators = document.querySelectorAll(".indicator");
+let currentIndex = 0;
+
+function showWork(index) {
+  if (index < 0) index = workItems.length - 1;
+  if (index >= workItems.length) index = 0;
+
+  // Hide all
+  workItems.forEach((item) => item.classList.remove("active"));
+  indicators.forEach((ind) => ind.classList.remove("active"));
+
+  // Show current
+  workItems[index].classList.add("active");
+  indicators[index].classList.add("active");
+
+  // Lazy-load iframe
+  const iframe = workItems[index].querySelector("iframe");
+  if (iframe && !iframe.src) {
+    iframe.src = iframe.dataset.src;
+  }
+
+  currentIndex = index;
+}
+
+function changeWork(step) {
+  showWork(currentIndex + step);
+}
+
+function currentWork(index) {
+  showWork(index - 1);
+}
+
+// Initialize first item
+showWork(currentIndex);
