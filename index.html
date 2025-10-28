@@ -127,11 +127,11 @@
 
             <div class="d-flex justify-content-center mb-3">
               <a
-                href="https://www.linkedin.com/company/digitai-agency/posts/?feedView=all"
-                target="_blank"
-                rel="noopener"
+                href="#"
                 class="btn btn-sm discord-btn px-3 py-2 text-center"
                 style="font-size: 0.875rem; font-weight: 500"
+                data-bs-toggle="modal"
+                data-bs-target="#chatModal"
               >
                 <i class="fab fa-discord"></i>
                 Start on DigitAI
@@ -393,7 +393,8 @@
               <span class="portfolio-category">Developer Community</span>
               <h3 class="portfolio-title">BetaBuilders</h3>
               <p class="portfolio-description">
-                At BetaBuilders, volunteers are the unseen strength that helps ideas cross into success.
+                At BetaBuilders, volunteers are the unseen strength that helps
+                ideas cross into success.
               </p>
             </div>
             <div class="portfolio-overlay">
@@ -518,7 +519,8 @@
               <span class="portfolio-category">Sustainability</span>
               <h3 class="portfolio-title">GrassKarma</h3>
               <p class="portfolio-description">
-                Organise mowing rosters or pool funds for a pro—saving time, money and stress.
+                Organise mowing rosters or pool funds for a pro—saving time,
+                money and stress.
               </p>
             </div>
             <div class="portfolio-overlay">
@@ -568,7 +570,8 @@
               <span class="portfolio-category">Job Board</span>
               <h3 class="portfolio-title">JobSearch</h3>
               <p class="portfolio-description">
-                AI-powered automation that finds jobs, tailors your resume, and applies for you — at scale.
+                AI-powered automation that finds jobs, tailors your resume, and
+                applies for you — at scale.
               </p>
             </div>
             <div class="portfolio-overlay">
@@ -1260,5 +1263,36 @@
     ></script>
 
     <script src="script.js"></script>
+
+    <!-- Chat Modal -->
+<div
+  class="modal fade"
+  id="chatModal"
+  tabindex="-1"
+  aria-labelledby="chatModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="chatModalLabel">DigitAI Chat</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body" style="height: 80vh; overflow: hidden;">
+        <iframe
+          src="chat.html"
+          style="width: 100%; height: 100%; border: none;"
+          title="DigitAI Chat"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
   </body>
 </html>
